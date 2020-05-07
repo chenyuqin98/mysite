@@ -28,3 +28,5 @@ class User(models.Model):
     #     u = cls(userAccount = account, userPasswd = passwd, userName = name, userPhone = phone, userAdderss = address,\
     #             userImg = img, userRank = rank, userToken = token)
     #     return u
+
+# class user_favorate(models.Model):

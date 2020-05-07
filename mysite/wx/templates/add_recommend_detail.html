@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <title>Add Recommend Books</title>
+<!--    <link rel="stylesheet" media="screen" href="{% static 'add_delete/style.css' %}">-->
+<!--    <link rel="stylesheet" type="text/css" href="{% static 'wx/reset.css' %}"/>-->
+    <link rel="stylesheet" type="text/css" href="{% static 'add_delete/home.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'add_delete/base.css' %}">
+</head>
+<!--<p><strong>Add Series</strong></p>-->
+<!--<body>-->
+<!--    <form action="/wx/add_recommend/" method="post">-->
+<!--        book name:<input type="text" name="name">-->
+<!--        isbn:<input type="text" name="isbn">-->
+<!--        author:<input type="text" name="author">-->
+<!--        introduce:<input type="text" name="introduce">-->
+<!--        cover:<input type="text" name="cover">-->
+<!--        series id:<input type="text" name="series_id">-->
+<!--        <input type="submit" value="add">-->
+<!--    </form>-->
+<!--</body>-->
+<body>
+<section class="aui-content">
+	<div style="height:20px;"></div>
+	<div class="aui-content-up">
+		<form action="/wx/add_recommend/" name="form1" method="post" enctype="multipart/form-data" >
+			{% csrf_token %}
+			<div class="aui-content-up-form">
+				<h2>添加推荐</h2>
+			</div>
+			<div class="aui-form-group clear">
+				<label class="aui-label-control">
+					书名 <em>*</em>
+				</label>
+				<div class="aui-form-input">
+					<input type="text" class="aui-form-control-two" name="name" onBlur="checkna()"
+                           required id="1" placeholder="请输入书名">
+					<span class="tips" id="divname">必填，且不能重复</span>
+				</div>
+			</div>
+            <div class="aui-form-group clear">
+				<label class="aui-label-control">
+					系列 <em>*</em>
+				</label>
+				<div class="aui-form-input">
+					<input type="text" class="aui-form-control-two" name="series_id" onBlur="checkna()"
+                           required id="6" placeholder="请输入系列号">
+					<span class="tips" id="series">必填，且必须是已创建系列</span>
+				</div>
+			</div>
+			<div class="aui-form-group clear">
+				<label class="aui-label-control">
+					isbn <em></em>
+				</label>
+				<div class="aui-form-input">
+					<input type="text" class="aui-form-control-two" name="isbn" id="2" placeholder="请输入isbn编号" onBlur=""/>
+					<span class="tips" id="phone">没有可以不填</span>
+				</div>
+			</div>
+			<div class="aui-form-group clear">
+				<label class="aui-label-control">
+					作者 <em></em>
+				</label>
+				<div class="aui-form-input">
+					<input type="text" class="aui-form-control-two" name="author" id="3" placeholder="请输入作者" onBlur="" />
+<!--					<span class="tips" id="zizhi">必须是18位社会信用代码</span>-->
+				</div>
+			</div>
+			<div class="aui-form-group clear">
+				<label class="aui-label-control">
+					简介
+				</label>
+				<div class="aui-form-input">
+					<textarea class="aui-form-control" name="introduce" id="4">请输入推荐书籍简介...</textarea>
+				</div>
+			</div>
+			<div class="aui-form-group clear">
+				<label class="aui-label-control">
+					封面图片 <em>*</em>
+					<span>小于5M</span>
+				</label>
+				<input type="file" name="cover">
+			</div>
+						<div class="aui-form-group clear">
+				<label class="aui-label-control">
+					上传书籍 <em>*</em>
+					<span></span>
+				</label>
+				<input type="file" name="url">
+			</div>
+            <br>
+            <div>
+		        <button type="submit" class="aui-btn aui-btn-account">提交推荐</button>
+	        </div>
+		</form>
+	</div>
+
+</section>
+<!-- mask begin -->
+<div class="aui-mask aui-works-mask">
+	<div class="aui-mask-content">
+		<p class="aui-delete-text">确定要删除你上传的资料？</p>
+		<p class="aui-check-text">
+			<span class="aui-delete aui-accept-ok">确定</span>
+			<span class="aui-accept-no">取消</span>
+		</p>
+	</div>
+</div>
+<!-- mask end -->
+<script type="text/javascript" src="{% static 'manager_index/jquery.min.js' %}" ></script>
+<script type="text/javascript" src="{% static 'add_delete/up.js' %}" ></script>
+
+</body>
+
+</html>

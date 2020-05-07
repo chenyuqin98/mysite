@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <title>Add Series</title>
+<!--    <link rel="stylesheet" media="screen" href="{% static 'add_delete/style.css' %}">-->
+    <link rel="stylesheet" type="text/css" href="{% static 'wx/reset.css' %}"/>
+    <link rel="stylesheet" type="text/css" href="{% static 'add_delete/home.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'add_delete/base.css' %}">
+</head>
+<!--<p><strong>Add Series</strong></p>-->
+<!--<body>-->
+
+<!--    <form action="/wx/add_series/" method="post">-->
+<!--        series name:<input type="text" name="name">-->
+<!--        series cover:<input type="text" name="cover">-->
+<!--        <input type="submit" value="add">-->
+<!--    </form>-->
+<!--</body>-->
+<body>
+<section class="aui-content">
+	<div style="height:20px;"></div>
+	<div class="aui-content-up">
+		<form action="/wx/add_series/" name="form1" method="post" enctype="multipart/form-data">
+			{% csrf_token %}
+			<div class="aui-content-up-form">
+				<h2>添加系列</h2>
+			</div>
+			<div class="aui-form-group clear">
+				<label class="aui-label-control">
+					系列名 <em>*</em>
+				</label>
+				<div class="aui-form-input">
+					<input type="text" class="aui-form-control-two" name="name" onBlur="checkna()"
+                           required id="1" placeholder="请输入书名">
+					<span class="tips" id="divname">必填，且不能重复</span>
+				</div>
+			</div>
+
+			<div class="aui-form-group clear">
+				<label class="aui-label-control">
+					封面图片 <em>*</em>
+					<span>小于5M</span>
+				</label>
+				<input type="file" name="cover">
+<!--				<div class="aui-form-input">-->
+<!--					<div class="aui-content-img-box aui-content-full">-->
+<!--						<div class="aui-photo aui-up-img clear">-->
+<!--							<section class="aui-file-up fl">-->
+<!--								<img src="{% static 'add_delete/up.png' %}" class="add-img">-->
+<!--								<input type="file" name="cover" id="file" class="file" value="" accept="image/jpg,image/jpeg,image/png,image/bmp" multiple/>-->
+<!--							</section>-->
+<!--						</div>-->
+<!--					</div>-->
+<!--				</div>-->
+			</div>
+            <br>
+            <div>
+		        <button type="submit" class="aui-btn aui-btn-account">提交系列</button>
+	        </div>
+		</form>
+	</div>
+
+</section>
+<!-- mask begin -->
+<div class="aui-mask aui-works-mask">
+	<div class="aui-mask-content">
+		<p class="aui-delete-text">确定要删除你上传的资料？</p>
+		<p class="aui-check-text">
+			<span class="aui-delete aui-accept-ok">确定</span>
+			<span class="aui-accept-no">取消</span>
+		</p>
+	</div>
+</div>
+<!-- mask end -->
+<script type="text/javascript" src="{% static 'manager_index/jquery.min.js' %}" ></script>
+<script type="text/javascript" src="{% static 'add_delete/up.js' %}" ></script>
+
+
+</body>
+
+
+</html>

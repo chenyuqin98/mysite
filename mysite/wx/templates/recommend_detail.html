@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+<!--    <link rel="stylesheet" media="screen" href="{% static 'add_delete/style.css' %}">-->
+    <link rel="stylesheet" type="text/css" href="{% static 'wx/reset.css' %}"/>
+    <link rel="stylesheet" type="text/css" href="{% static 'add_delete/home.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'add_delete/base.css' %}">
+</head>
+
+<body>
+<section class="aui-content">
+	<div style="height:20px;"></div>
+	<div class="aui-content-up">
+		<form action="" name="form1" method="post">
+			<div class="aui-content-up-form">
+				<h2>推荐书籍管理</h2>
+			</div>
+			<div class="aui-form-group clear">
+				<label class="aui-label-control">
+					书名 <em></em>
+				</label>
+				<div class="aui-form-input">
+					<input type="text" class="aui-form-control-two" value="{{ RecommendBooks.bookname }}" disabled="disabled">
+				</div>
+			</div>
+            <div class="aui-form-group clear">
+				<label class="aui-label-control">
+					系列号 <em></em>
+				</label>
+				<div class="aui-form-input">
+					<input type="text" class="aui-form-control-two" value="{{ RecommendBooks.series_id_id }}" disabled="disabled">
+				</div>
+			</div>
+			<div class="aui-form-group clear">
+				<label class="aui-label-control">
+					isbn <em></em>
+				</label>
+				<div class="aui-form-input">
+					<input type="text" class="aui-form-control-two" value="{{ RecommendBooks.isbn }}" disabled="disabled">
+				</div>
+			</div>			<div class="aui-form-group clear">
+				<label class="aui-label-control">
+					作者 <em></em>
+				</label>
+				<div class="aui-form-input">
+					<input type="text" class="aui-form-control-two" value="{{ RecommendBooks.author }}" disabled="disabled">
+				</div>
+			</div>
+
+
+			<div class="aui-form-group clear">
+				<label class="aui-label-control">
+					简介
+				</label>
+				<div class="aui-form-input">
+					<textarea class="aui-form-control" name="introduce" id="4">{{ RecommendBooks.introduce }}</textarea>
+				</div>
+			</div>
+			<div class="aui-form-group clear">
+				<label class="aui-label-control">
+					封面 <em></em>
+
+				</label>
+				<div class="aui-form-input">
+					<div class="aui-content-img-box aui-content-full">
+						<div class="aui-photo aui-up-img clear">
+							<section class="aui-file-up fl">
+								<img src="{{ RecommendBooks.cover.url }}" class="add-img">
+
+							</section>
+						</div>
+					</div>
+				</div>
+			</div>
+		</form>
+	</div>
+	<div class="aui-btn-default">
+        <form action="{% url 'wx:delete_this_book' RecommendBooks.id %}" method="post">
+            <button type='submit' class="aui-btn aui-btn-account">删除本书</button>
+        </form>
+
+	</div>
+</section>
+

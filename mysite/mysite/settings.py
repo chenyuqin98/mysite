@@ -32,9 +32,10 @@ ALLOWED_HOSTS = ['*']
 # Application definition
 
 INSTALLED_APPS = [
-    # 'polls.apps.PollsConfig',
-    'wxapp.apps.GenesisConfig',
+    'polls.apps.PollsConfig',
+    'wxapp.apps.GenesisConfig',  # 与wxapp/apps.py
     'wx_login.apps.WxLoginConfig',
+    'wx.apps.WxConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -58,7 +59,7 @@ ROOT_URLCONF = 'mysite.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, 'temples/')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -66,6 +67,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'django.template.context_processors.media',
             ],
         },
     },
@@ -136,5 +138,6 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
 STATIC_URL = '/static/'
-
-
+# STATIC_ROOT= os.path.join(BASE_DIR, '/static/')
+MEDIA_ROOT = 'C:/Users/Administrator/mysite/wx/media/'
+MEDIA_URL = '/wx/media/'

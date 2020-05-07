@@ -1,0 +1,248 @@
+<head>
+    <meta charset="UTF-8">
+    <title>连山APP Manager Home</title>
+    {% load static %}
+    <link rel="stylesheet" media="screen" href="{% static 'manager_index/style.css' %}">
+    <link rel="stylesheet" href="{% static 'manager_index/page.css' %}" />
+    <link rel="stylesheet" href="{% static 'manager_index/amazeui.min.css' %}" />
+
+    <script type="text/javascript" src="{% static 'manager_index/index.js' %}"></script>
+    <script type="text/javascript" src="{% static 'manager_index/jquery.min.js' %}"></script>
+</head>
+
+<!--第一版-->
+<!--<h1>Welcome to Lianshan WX App Manager Website!</h1>-->
+<!--<p><strong>Upload Books Manage</strong></p>-->
+<!--{% if UploadBooks %}-->
+<!--    <ul>-->
+<!--    {% for book in UploadBooks %}-->
+<!--        <li><a href="{% url 'wx:upload_detail' book.id %}">{{ book.id }}.{{ book.title }}</a></li>-->
+<!--    {% endfor %}-->
+<!--    </ul>-->
+<!--{% else %}-->
+<!--    <p>No books are available.</p>-->
+<!--{% endif %}-->
+
+
+<!--<p><strong>Series Manage</strong></p>-->
+<!--{% if Series %}-->
+<!--    <ul>-->
+<!--    {% for series in Series %}-->
+<!--        <li><a href="{% url 'wx:series_detail' series.id %}">{{ series.id }}.{{ series.series_name }}</a></li>-->
+<!--    {% endfor %}-->
+<!--    </ul>-->
+<!--{% else %}-->
+<!--    <p>No series are available.</p>-->
+<!--{% endif %}-->
+
+<!--<form action="/wx/add_series_detail/" method="post">-->
+<!--<input type="submit" value="Add Series">-->
+<!--</form>-->
+
+
+<!--<p><strong>Recommend Books Manage</strong></p>-->
+<!--{% if RecommendBooks %}-->
+<!--    <ul>-->
+<!--    {% for book in RecommendBooks %}-->
+<!--        <li><a href="{% url 'wx:recommend_detail' book.id %}">{{ book.bookname }}</a></li>-->
+<!--    {% endfor %}-->
+<!--    </ul>-->
+<!--{% else %}-->
+<!--    <p>No books are available.</p>-->
+<!--{% endif %}-->
+
+<!--<form action="/wx/add_recommend_detail/" method="post">-->
+<!--<input type="submit" value="Add Recommend Books">-->
+<!--</form>-->
+
+
+	<body>
+		<div class="left">
+			<div class="bigTitle">连山APP后台管理</div>
+			<div class="lines">
+				<div onmouseover="" onclick="pageClick(this);return swap_tab(1)" class="active">
+                    <img src="{% static 'manager_index/icon-1.png' %}"/>上传资料审核</div>
+				<div onmouseover="" onclick="pageClick(this);return swap_tab(2)">
+                    <img src="{% static 'manager_index/icon-2.png' %}"/>推荐系列管理</div>
+				<div onmouseover="" onclick="pageClick(this);return swap_tab(3)">
+                    <img src="{% static 'manager_index/icon-3.png' %}"/>推荐书籍管理</div>
+<!--				<div onclick="pageClick(this)"><img src="{% static 'manager_index/icon-4.png' %}"/>收货地址管理</div>-->
+<!--				<div onclick="pageClick(this)"><img src="{% static 'manager_index/icon-5.png' %}"/>在售门店管理</div>-->
+			</div>
+		</div>
+		<div class="top">
+			<div class="leftTiyle" id="flTitle">上传资料审核</div>
+<!--            <div class="leftTiyle" id="p2" style="display:none;">推荐系列管理</div>-->
+<!--            <div class="leftTiyle" id="p3" style="display:none;">上传资料审核</div>-->
+<!--			<div class="thisUser">当前用户：小UU</div>-->
+		</div>
+
+
+		<div class="content">
+<!--            审核-->
+            <div class="tabCon" id="n1">
+                <table class="am-table am-table-striped am-table-hover table-main">
+							<thead>
+								<tr>
+									<th class="table-check"><input type="checkbox"></th>
+									<th class="table-id">ID</th>
+									<th class="table-title">标题</th>
+									<th class="table-type">类别</th>
+									<th class="table-author am-hide-sm-only">作者</th>
+									<th class="table-date am-hide-sm-only">来源</th>
+									<th class="table-set">状态</th>
+								</tr>
+							</thead>
+
+							<tbody>
+                            {% if UploadBooks %}
+                            {% for book in UploadBooks %}
+								<tr>
+									<td><input type="checkbox"></td>
+									<td>{{ book.id }}</td>
+									<td>
+										<a href="{% url 'wx:upload_detail' book.id %}">{{ book.title }}</a>
+									</td>
+									<td>{{ book.type }}</td>
+									<td class="am-hide-sm-only">{{ book.author }}</td>
+									<td class="am-hide-sm-only">{{ book.url }}</td>
+									<td>
+										<div class="am-btn-toolbar">
+											<div class="am-btn-group am-btn-group-xs">
+                                                {{ book.status }}
+                                            </div>
+										</div>
+									</td>
+								</tr>
+                            {% endfor %}
+                            {% else %}
+                                <p>No books are available.</p>
+                            {% endif %}
+                            </tbody>
+                </table>
+            </div>
+
+
+
+
+<!--            系列管理-->
+            <div id="n2" class="am-g" style="display:none;">
+                <form action="/wx/add_series_detail/" method="post">
+                    <div class="am-u-sm-12 am-u-md-6">
+					<div class="am-btn-toolbar">
+						<div class="am-btn-group am-btn-group-xs">
+							<button type="submit" class="am-btn am-btn-default"><span class="am-icon-plus"></span>新增</button>
+						</div>
+					</div>
+				    </div>
+                </form>
+
+            <table class="am-table am-table-striped am-table-hover table-main">
+							<thead>
+								<tr>
+									<th class="table-check"><input type="checkbox"></th>
+									<th class="table-id">ID</th>
+									<th class="table-title">标题</th>
+								</tr>
+							</thead>
+
+							<tbody>
+                            {% if Series %}
+                            {% for series in Series %}
+								<tr>
+									<td><input type="checkbox"></td>
+									<td>{{ series.id }}</td>
+									<td>
+										<a href="{% url 'wx:series_detail' series.id %}">{{ series.series_name }}</a>
+									</td>
+								</tr>
+                            {% endfor %}
+                            {% else %}
+                                <p>No series are available.</p>
+                            {% endif %}
+                            </tbody>
+                </table>
+            </div>
+
+
+
+
+
+            <div id="n3" class="am-g" style="display:none;">
+                <form action="/wx/add_recommend_detail/" method="post">
+                    <div class="am-u-sm-12 am-u-md-6">
+					<div class="am-btn-toolbar">
+						<div class="am-btn-group am-btn-group-xs">
+							<button type="submit" class="am-btn am-btn-default"><span class="am-icon-plus"></span>新增</button>
+						</div>
+					</div>
+				    </div>
+                </form>
+
+
+                <table class="am-table am-table-striped am-table-hover table-main">
+							<thead>
+								<tr>
+									<th class="table-check"><input type="checkbox"></th>
+									<th class="table-id">ID</th>
+									<th class="table-title">书名</th>
+									<th class="table-type">系列号</th>
+                                    <th class="table-type">isbn</th>
+									<th class="table-author am-hide-sm-only">作者</th>
+									<th class="table-title">介绍</th>
+								</tr>
+							</thead>
+
+							<tbody>
+                            {% if RecommendBooks %}
+                            {% for book in RecommendBooks %}
+								<tr>
+									<td><input type="checkbox"></td>
+									<td>{{ book.id }}</td>
+									<td>
+										<a href="{% url 'wx:recommend_detail' book.id %}">{{ book.bookname }}</a>
+									</td>
+									<td>{{ book.series_id_id }}</td>
+                                    <td>{{ book.isbn }}</td>
+									<td class="am-hide-sm-only">{{ book.author }}</td>
+									<td class="am-hide-sm-only">{{ book.introduce }}</td>
+								</tr>
+                            {% endfor %}
+                            {% else %}
+                                <p>No books are available.</p>
+                            {% endif %}
+                            </tbody>
+                </table>
+
+            </div>
+		<script src="https://eqcn.ajz.miesnfu.com/wp-content/plugins/wp-3d-pony/live2dw/lib/L2Dwidget.min.js"></script>
+			<script>
+      L2Dwidget.init({
+          "model": {
+              jsonPath: "https://unpkg.com/live2d-widget-model-hijiki/assets/hijiki.model.json",<!--这里改模型，前面后面都要改-->
+              "scale": 1
+          },
+          "display": {
+              "position": "left",<!--设置看板娘的上下左右位置-->
+              "width": 220,
+              "height": 200,
+              "hOffset": 70,
+              "vOffset": 0
+          },
+          "mobile": {
+              "show": true,
+              "scale": 0.5
+          },
+          "react": {
+              "opacityDefault": 0.7,<!--设置透明度-->
+              "opacityOnHover": 0.2
+          }
+      });
+  window.onload = function(){
+       $("#live2dcanvas").attr("style","position: fixed; opacity: 0.7; left: 70px; bottom: 0px; z-index: 1; pointer-events: none;")
+  }
+  </script>
+        </div>
+    </body>
+
+

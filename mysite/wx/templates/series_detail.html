@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+<!--    <link rel="stylesheet" media="screen" href="{% static 'add_delete/style.css' %}">-->
+    <link rel="stylesheet" type="text/css" href="{% static 'wx/reset.css' %}"/>
+    <link rel="stylesheet" type="text/css" href="{% static 'add_delete/home.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'add_delete/base.css' %}">
+</head>
+
+<body>
+<section class="aui-content">
+	<div style="height:20px;"></div>
+	<div class="aui-content-up">
+		<form action="" name="form1" method="post">
+			<div class="aui-content-up-form">
+				<h2>推荐系列管理</h2>
+			</div>
+			<div class="aui-form-group clear">
+				<label class="aui-label-control">
+					系列名 <em></em>
+				</label>
+				<div class="aui-form-input">
+					<input type="text" class="aui-form-control-two" value="{{ Series.series_name }}" disabled="disabled">
+				</div>
+			</div>
+			<div class="aui-form-group clear">
+				<label class="aui-label-control">
+					封面 <em></em>
+
+				</label>
+				<div class="aui-form-input">
+					<div class="aui-content-img-box aui-content-full">
+						<div class="aui-photo aui-up-img clear">
+							<section class="aui-file-up fl">
+								<img src="{{Series.cover.url}}" class="add-img">
+							</section>
+						</div>
+					</div>
+				</div>
+			</div>
+            <div class="aui-form-group-text">
+				<h3>注意！</h3>
+				<p>删除系列会导致该系列下的书也被删除！</p>
+			</div>
+		</form>
+	</div>
+	<div class="aui-btn-default">
+        <form action="{% url 'wx:delete_this_series' Series.id %}"  method="post">
+            <button type='submit' class="aui-btn aui-btn-account">删除该系列</button>
+        </form>
+
+	</div>
+</section>
+
+

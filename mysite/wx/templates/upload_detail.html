@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+<!--    <link rel="stylesheet" media="screen" href="{% static 'add_delete/style.css' %}">-->
+    <link rel="stylesheet" type="text/css" href="{% static 'wx/reset.css' %}"/>
+    <link rel="stylesheet" type="text/css" href="{% static 'add_delete/home.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'add_delete/base.css' %}">
+</head>
+
+<body>
+<section class="aui-content">
+	<div style="height:20px;"></div>
+	<div class="aui-content-up">
+		<form action="" name="form1" method="post">
+			<div class="aui-content-up-form">
+				<h2>上传资料审核</h2>
+			</div>
+			<div class="aui-form-group clear">
+				<label class="aui-label-control">
+					书名 <em></em>
+				</label>
+				<div class="aui-form-input">
+					<input type="text" class="aui-form-control-two" value="{{ UploadBooks.title }}" disabled="disabled">
+				</div>
+			</div>
+			<div class="aui-form-group clear">
+				<label class="aui-label-control">
+					类型 <em></em>
+				</label>
+				<div class="aui-form-input">
+					<input type="text" class="aui-form-control-two" value="{{ UploadBooks.type }}" disabled="disabled">
+				</div>
+			</div>			<div class="aui-form-group clear">
+				<label class="aui-label-control">
+					网站 <em></em>
+				</label>
+				<div class="aui-form-input">
+					<input type="text" class="aui-form-control-two" value="{{ UploadBooks.website }}" disabled="disabled">
+				</div>
+			</div>			<div class="aui-form-group clear">
+				<label class="aui-label-control">
+					作者 <em></em>
+				</label>
+				<div class="aui-form-input">
+					<input type="text" class="aui-form-control-two" value="{{ UploadBooks.author }}" disabled="disabled">
+				</div>
+			</div>
+			<div class="aui-form-group clear">
+				<label class="aui-label-control">
+					出版社 <em></em>
+				</label>
+				<div class="aui-form-input">
+					<input type="text" class="aui-form-control-two" value="{{ UploadBooks.publisher }}" disabled="disabled">
+				</div>
+			</div>
+            <div class="aui-form-group clear">
+				<label class="aui-label-control">
+					上传时间 <em></em>
+				</label>
+				<div class="aui-form-input">
+					<input type="text" class="aui-form-control-two" value="{{ UploadBooks.year }}" disabled="disabled">
+				</div>
+			</div>
+            <div class="aui-form-group clear">
+				<label class="aui-label-control">
+					上传者 <em></em>
+				</label>
+				<div class="aui-form-input">
+					<input type="text" class="aui-form-control-two" value="{{ UploadBooks.uploader_id }}" disabled="disabled">
+				</div>
+			</div>
+			<div class="aui-form-group clear">
+				<label class="aui-label-control">
+					地址 <em></em>
+				</label>
+				<div class="aui-form-input">
+					<input type="text" class="aui-form-control-two" value="{{ UploadBooks.url }}" disabled="disabled">
+				</div>
+			</div>
+			<div class="aui-form-group clear">
+				<label class="aui-label-control">
+					封面 <em></em>
+
+				</label>
+				<div class="aui-form-input">
+					<div class="aui-content-img-box aui-content-full">
+						<div class="aui-photo aui-up-img clear">
+							<section class="aui-file-up fl">
+								<img src="img/up.png" class="add-img">
+								<input type="file" name="file" id="file" class="file" value="" accept="image/jpg,image/jpeg,image/png,image/bmp" multiple/>
+							</section>
+						</div>
+					</div>
+				</div>
+			</div>
+		</form>
+	</div>
+	<div class="aui-btn-default">
+        <form action="{% url 'wx:check_and_submit' UploadBooks.id %}" method="post">
+            <button type='submit' class="aui-btn aui-btn-account">审核并提交</button>
+        </form>
+
+	</div>
+</section>
+
