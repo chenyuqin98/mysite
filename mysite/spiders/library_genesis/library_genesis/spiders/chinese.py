@@ -12,13 +12,13 @@ class MathSpider(scrapy.Spider):
         'http://libgen.is/search.php?&res=100&req=chinese&phrase=1&view=detailed&column=language&sort=id&sortmode=DESC']
 
     def parse(self, response):
-    #     for i in range(1, 10):
-    #         yield scrapy.Request(
-    #             url='https://libgen.lc/search.php?&res=100&req=Math&phrase=1&view=simple&column=def&sort=def&sortmode=ASC&page=' + str(
-    #                 i)
-    #             , callback=self.get_main)
-    #
-    # def get_main(self, response):
+        for i in range(1, 10):
+            yield scrapy.Request(
+                url='http://libgen.is/search.php?&res=100&req=chinese&phrase=1&view=detailed&column=language&sort=id&sortmode=DESC&page='
+                    + str(i)
+                , callback=self.get_main)
+
+    def get_main(self, response):
     #     print(response.body)  # test whether html text was got successfully
         book = math()  # 将信息存入LibraryGenesisItem对象
 

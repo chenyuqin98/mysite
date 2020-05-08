@@ -11,6 +11,7 @@ class books(models.Model):
     year = models.CharField(max_length=45, null=True)
     url = models.CharField(max_length=400, null=True)
     cover = models.CharField(max_length=400, null=True)
+    introduce = models.TextField(null=True)
 
 
 class User(models.Model):
@@ -59,6 +60,7 @@ class upload_books(models.Model):
     cover = models.CharField(max_length=400, null=True)
     status = models.CharField(max_length=45, null=True)
     uploader = models.ForeignKey(User, on_delete=models.CASCADE)
+    introduce = models.TextField(null=True)
 
 
 class series(models.Model):

@@ -33,8 +33,8 @@ ALLOWED_HOSTS = ['*']
 
 INSTALLED_APPS = [
     'polls.apps.PollsConfig',
-    'wxapp.apps.GenesisConfig',  # 与wxapp/apps.py
-    'wx_login.apps.WxLoginConfig',
+    # 'wxapp.apps.GenesisConfig',  # 与wxapp/apps.py
+    # 'wx_login.apps.WxLoginConfig',
     'wx.apps.WxConfig',
     'django.contrib.admin',
     'django.contrib.auth',

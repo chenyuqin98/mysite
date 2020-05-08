@@ -23,8 +23,8 @@ from django.conf import settings
 urlpatterns = [
     path('polls/', include('polls.urls')),
     path('admin/', admin.site.urls),
-    path('wx_login/', include('wx_login.urls')),
-    path('wxapp/', include('wxapp.urls')),
+    # path('wx_login/', include('wx_login.urls')),
+    # path('wxapp/', include('wxapp.urls')),
     path('wx/', include('wx.urls')),
     url(r'^upload', views.uploadImg),
     # url(r'^add_series', views.add_series),

@@ -18,11 +18,11 @@ class LibraryGenesisPipeline(object):
     def process_item(self, item, spider):
         # 定义sql语句
         sql = """
-            insert into wx_books(type,title,website,author,publisher,year,url,cover)
-            values(%s,%s,%s,%s,%s,%s,%s,%s)
+            insert into wx_books(type,title,website,author,publisher,year,url,cover,introduce)
+            values(%s,%s,%s,%s,%s,%s,%s,%s,%s)
         """
         # 执行sql语句
-        self.cursor.execute(sql,(item['type'],item['title'],item['website'],item['author'],item['publisher'],item['year'],item['url'],item['cover']))
+        self.cursor.execute(sql,(item['type'],item['title'],item['website'],item['author'],item['publisher'],item['year'],item['url'],item['cover'],item['introduce']))
         # 保存修改
         self.connection.commit()
         return item
