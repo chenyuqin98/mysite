@@ -63,8 +63,9 @@ class MathSpider(scrapy.Spider):
         books = response.meta['books']
         cover = response.xpath('//td/a/img/@src').extract_first()
         books['cover'] = "https://libgen.is" + cover
+        books['introduce'] = response.xpath("//tr[@valign]/td[@colspan='4']/text()").extract_first()
         books['type'] = 'chinese'
         books['website'] = 'libgen.is'
-        # print(books)
+        print(books)
         yield books
 

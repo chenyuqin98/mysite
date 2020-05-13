@@ -38,6 +38,7 @@ class user_action(models.Model):
 
     class Meta:
         db_table = 'user_action'
+        unique_together = ('user', 'books',)
 
 
 class manager(models.Model):

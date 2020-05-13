@@ -10,6 +10,7 @@ urlpatterns = [
     path('getdata/', views.wxapp, name='wxapp'),
     path('search/', views.search, name='search'),
     path('search_detail/', views.search_detail, name='search_detail'),
+    path('search_recommend_detail/', views.search_recommend_detail, name='search_recommend_detail'),
     path('login/', views.wx_login, name='wx_login'),
     path('regist/', views.wx_regist, name='wx_regist'),
     # 用户行为

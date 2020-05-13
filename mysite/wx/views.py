@@ -62,47 +62,71 @@ def search_detail(request):
         detail = books.objects.filter(id=id)
         json_data = serializers.serialize("json", detail)
         print(json_data)
-        # for list in lists:
-        #     print(list.title)
+        return JsonResponse(json_data, safe=False)
+
+def search_recommend_detail(request):
+    if request.method == 'GET':
+        id = request.GET.get('id')
+        detail = recommend_books.objects.filter(id=id)
+        json_data = serializers.serialize("json", detail)
+        print(json_data)
         return JsonResponse(json_data, safe=False)
 
 
 def add_history(request):
     if request.method == 'POST':
-        history=user_action(
-            user_id=request.POST.get('user_id'),
+        account = request.POST.get('user_id')
+        user = User.objects.filter(userAccount=account)[0]
+        user_id = user.id
+        history = user_action(
+            user_id=user_id,
             books_id=request.POST.get('book_id'),
             type=request.POST.get('type'),
             action='history'
         )
         history.save()
+    return HttpResponse('成功！')
 def add_favo(request):
     if request.method == 'POST':
+        account = request.POST.get('user_id')
+        user = User.objects.filter(userAccount=account)[0]
+        user_id = user.id
         history=user_action(
-            user_id=request.POST.get('user_id'),
+            user_id=user_id,
             books_id=request.POST.get('book_id'),
             type=request.POST.get('type'),
             action='favo'
         )
+        # print(request.POST.get('user_id'),request.POST.get('book_id'))
         history.save()
+    return HttpResponse('成功！')
 def show_history(request):
     if request.method=='GET':
-        user_id=request.GET.get('user_id')
+        account = request.GET.get('user_id')
+        user = User.objects.filter(userAccount=account)[0]
+        user_id = user.id
+        # user_id=request.GET.get('user_id')
         showed_history=user_action.objects.filter(Q(user_id=user_id) & Q(action='history'))
         json_data = serializers.serialize("json", showed_history)
         print(json_data)
         return JsonResponse(json_data, safe=False)
 def show_favo(request):
     if request.method=='GET':
-        user_id=request.GET.get('user_id')
+        account = request.GET.get('user_id')
+        user = User.objects.filter(userAccount=account)[0]
+        user_id = user.id
+        # user_id=request.GET.get('user_id')
         showed_history=user_action.objects.filter(Q(user_id=user_id) & Q(action='favo'))
         json_data = serializers.serialize("json", showed_history)
         print(json_data)
         return JsonResponse(json_data, safe=False)
 def user_upload(request):
     if request.method=='POST':
+        account=request.POST.get('user_id')
+        user = User.objects.filter(userAccount=account)[0]
+        user_id=user.id
         upload_book=upload_books(
-            uploader_id=request.POST.get('user_id'),
+            uploader_id=user_id,
             title=request.POST.get('title'),
             type=request.POST.get('type'),
             website=request.POST.get('website'),
@@ -111,12 +135,17 @@ def user_upload(request):
             year=request.POST.get('year'),
             url=request.POST.get('url'),
             cover=request.POST.get('cover'),
+            introduce=request.POST.get('intro'),
             status='待审核'
         )
         upload_book.save()
+    return HttpResponse('上传成功')
 def show_upload(request):
     if request.method=='GET':
-        user_id=request.GET.get('user_id')
+        account = request.GET.get('user_id')
+        user = User.objects.filter(userAccount=account)[0]
+        user_id = user.id
+        # user_id=request.GET.get('user_id')
         showed_upload=upload_books.objects.filter(uploader_id=user_id)
         json_data = serializers.serialize("json", showed_upload)
         print(json_data)
@@ -138,8 +167,11 @@ def level_up(user_id):
     user.save()
 def add_exp(request):
     if request.method == 'POST':
-        user_id = request.GET.get('user_id')
-        num = request.GET.get('num')
+        account = request.POST.get('user_id')
+        user = User.objects.filter(userAccount=account)[0]
+        user_id = user.id
+        # user_id = request.GET.get('user_id')
+        num = request.POST.get('num')
         user = User.objects.filter(user_id=user_id)
         exp = user.exp
         exp += num
@@ -148,7 +180,10 @@ def add_exp(request):
         level_up(user_id)
 def add_scores(request):
     if request.method == 'POST':
-        user_id = request.POST.get('user_id')
+        account = request.POST.get('user_id')
+        user = User.objects.filter(userAccount=account)[0]
+        user_id = user.id
+        # user_id = request.POST.get('user_id')
         num = request.POST.get('num')
         user = User.objects.filter(user_id=user_id)
         scores = user.scores
@@ -158,13 +193,13 @@ def add_scores(request):
 def show_user_info(request):
     if request.method == 'GET':
         user_id = request.GET.get('user_id')
-        detail = User.objects.filter(user_id=user_id)
+        detail = User.objects.filter(userAccount=user_id)
         json_data = serializers.serialize("json", detail)
         print(json_data)
         return JsonResponse(json_data, safe=False)
 def show_all_recommend(request):
     if request.method == 'GET':
-        books = recommend_books.objects
+        books = recommend_books.objects.all()
         json_data = serializers.serialize("json", books)
         print(json_data)
         # for list in lists:
@@ -172,7 +207,7 @@ def show_all_recommend(request):
         return JsonResponse(json_data, safe=False)
 def show_all_series(request):
     if request.method == 'GET':
-        books = series.objects
+        books = series.objects.all()
         json_data = serializers.serialize("json", books)
         print(json_data)
         # for list in lists:

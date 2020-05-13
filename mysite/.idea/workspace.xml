@@ -43,8 +43,8 @@
       <recent name="C:\Users\Administrator\mysite\wx\static\wx" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.spider_url">
-    <configuration name="ishappy" type="PythonConfigurationType" factoryName="Python" temporary="true">
+  <component name="RunManager" selected="Python.hanming">
+    <configuration name="hanming" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="mysite" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -52,11 +52,32 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/test/tutorial" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/test" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/test/tutorial/ishappy.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/test/hanming.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="kaoshi" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="mysite" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/test" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/test/kaoshi.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -86,7 +107,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="quick_sort" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration name="pow" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="mysite" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -98,7 +119,7 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/test/quick_sort.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/test/pow.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -128,34 +149,13 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="text_selenium" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <module name="mysite" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/test" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="C:\Users\Administrator\mysite\test\test_selenium.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.hanming" />
+        <item itemvalue="Python.kaoshi" />
+        <item itemvalue="Python.pow" />
         <item itemvalue="Python.spider_url" />
         <item itemvalue="Python.mountain——arry" />
-        <item itemvalue="Python.quick_sort" />
-        <item itemvalue="Python.ishappy" />
-        <item itemvalue="Python.text_selenium" />
       </list>
     </recent_temporary>
   </component>
@@ -197,38 +197,38 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="463" y="118" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1582184800415" />
-    <state width="1344" height="205" key="GridCell.Tab.0.bottom" timestamp="1588925142708">
+    <state width="672" height="205" key="GridCell.Tab.0.bottom" timestamp="1589256759951">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1344" height="205" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1588925142708" />
-    <state width="1344" height="205" key="GridCell.Tab.0.center" timestamp="1588925142708">
+    <state width="672" height="205" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1589256759951" />
+    <state width="672" height="205" key="GridCell.Tab.0.center" timestamp="1589256759951">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1344" height="205" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1588925142708" />
-    <state width="1344" height="205" key="GridCell.Tab.0.left" timestamp="1588925142708">
+    <state width="672" height="205" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1589256759951" />
+    <state width="672" height="205" key="GridCell.Tab.0.left" timestamp="1589256759951">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1344" height="205" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1588925142708" />
-    <state width="1344" height="205" key="GridCell.Tab.0.right" timestamp="1588925142708">
+    <state width="672" height="205" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1589256759951" />
+    <state width="672" height="205" key="GridCell.Tab.0.right" timestamp="1589256759951">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1344" height="205" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1588925142708" />
-    <state width="1344" height="216" key="GridCell.Tab.1.bottom" timestamp="1588497095722">
+    <state width="672" height="205" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1589256759951" />
+    <state width="672" height="216" key="GridCell.Tab.1.bottom" timestamp="1589254507978">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1344" height="216" key="GridCell.Tab.1.bottom/0.0.1366.728@0.0.1366.728" timestamp="1588497095722" />
-    <state width="1344" height="216" key="GridCell.Tab.1.center" timestamp="1588497095721">
+    <state width="672" height="216" key="GridCell.Tab.1.bottom/0.0.1366.728@0.0.1366.728" timestamp="1589254507978" />
+    <state width="672" height="216" key="GridCell.Tab.1.center" timestamp="1589254507978">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1344" height="216" key="GridCell.Tab.1.center/0.0.1366.728@0.0.1366.728" timestamp="1588497095721" />
-    <state width="1344" height="216" key="GridCell.Tab.1.left" timestamp="1588497095721">
+    <state width="672" height="216" key="GridCell.Tab.1.center/0.0.1366.728@0.0.1366.728" timestamp="1589254507978" />
+    <state width="672" height="216" key="GridCell.Tab.1.left" timestamp="1589254507978">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1344" height="216" key="GridCell.Tab.1.left/0.0.1366.728@0.0.1366.728" timestamp="1588497095721" />
-    <state width="1344" height="216" key="GridCell.Tab.1.right" timestamp="1588497095721">
+    <state width="672" height="216" key="GridCell.Tab.1.left/0.0.1366.728@0.0.1366.728" timestamp="1589254507978" />
+    <state width="672" height="216" key="GridCell.Tab.1.right" timestamp="1589254507978">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1344" height="216" key="GridCell.Tab.1.right/0.0.1366.728@0.0.1366.728" timestamp="1588497095721" />
+    <state width="672" height="216" key="GridCell.Tab.1.right/0.0.1366.728@0.0.1366.728" timestamp="1589254507978" />
     <state x="184" y="0" key="SettingsEditor" timestamp="1587652873141">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -304,6 +304,11 @@
           <url>file://$PROJECT_DIR$/test/mountain——arry.py</url>
           <line>33</line>
           <option name="timeStamp" value="21" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/test/pow.py</url>
+          <line>1</line>
+          <option name="timeStamp" value="22" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

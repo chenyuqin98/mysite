@@ -63,6 +63,7 @@ class ComputerSpider(scrapy.Spider):
         books = response.meta['books']
         cover = response.xpath('//td/img/@src').extract_first()
         books['cover'] = "https://libgen.lc" + cover
+        books['introduce'] = response.xpath("//tr[@valign]/td[@colspan='4']/text()").extract_first()
         books['type'] = 'computer'
         books['website'] = 'libgen.lc'
         print(books)

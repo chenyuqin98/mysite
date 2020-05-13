@@ -17,7 +17,7 @@ class MathSpider(scrapy.Spider):
         types['type'] = types['type'].xpath("string(.)").extract()
         # print(types['type'])
         book_type = math()
-        for i in range(0, 2):
+        for i in range(0, 145):
             book_type['type'] = types['type'][i]
             # print(book_type)
             yield scrapy.Request(url='https://book.douban.com/tag/' + str(book_type['type']),
